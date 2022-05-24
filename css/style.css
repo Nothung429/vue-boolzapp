@@ -1,0 +1,30 @@
+/*------ general ------*/
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    font-family: 'Lato', sans-serif;
+    height: 100vh;
+    position: relative;
+}
+.bg-body-1 {
+    background-color: #009688;
+    height: 20vh;
+}
+.bg-body-2 {
+    background-color: #dcdbd3;
+    height: 80vh;
+}
+
+/*------ main ------*/
+.container {
+    background-color: red;
+    height: 90%;
+    width: 80%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50% , -50%);
+}
