@@ -17,14 +17,71 @@ body {
     background-color: #dcdbd3;
     height: 80vh;
 }
+img {
+    max-width: 50px;
+    max-height: 50px;
+    border-radius: 50%;
+}
 
 /*------ main ------*/
 .container {
-    background-color: red;
     height: 90%;
     width: 80%;
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50% , -50%);
+    display: flex;
 }
+.col-left {
+    width: 35%;
+    height: 100%;
+    background-color: blue;
+}
+.col-right {
+    width: 65%;
+    height: 100%;
+    background-color: green;
+}
+
+/*------ left column ------*/
+.title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #eaeaea;
+}
+.person {
+    display: flex;
+    align-items: center;
+}
+.notification {
+    background-color: #8edafc;
+    display: flex;
+    align-items: center;
+}
+.notification i {
+    background-color: #f2fbff;
+    color: #8edafc;
+    font-size: 22px;
+    height: 50px;
+    width: 50px;
+    line-height: 50px;
+    text-align: center;
+    border-radius: 50%;
+}
+.contact-search {
+    display: flex;
+    justify-content: center;
+    padding: 10px 0;
+    background-color: #fafafa;
+}
+.contact-search button {
+    width: 15%;
+}
+.contact-search input {
+    width: 80%;
+}
+
+/*------ right column ------*/
+
