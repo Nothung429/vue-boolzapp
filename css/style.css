@@ -22,6 +22,9 @@ img {
     max-height: 50px;
     border-radius: 50%;
 }
+i:hover {
+    color: #000;
+}
 
 /*------ main ------*/
 .container {
@@ -36,12 +39,11 @@ img {
 .col-left {
     width: 35%;
     height: 100%;
-    background-color: blue;
+    background-color: #fff;
 }
 .col-right {
     width: 65%;
     height: 100%;
-    background-color: green;
 }
 
 /*------ left column ------*/
@@ -50,25 +52,45 @@ img {
     justify-content: space-between;
     align-items: center;
     background-color: #eaeaea;
+    padding: 10px;
 }
 .person {
     display: flex;
     align-items: center;
 }
+.person span {
+    font-size: 18px;
+    margin-left: 8px;
+}
+.person-icon {
+    color: #b1b1b1;
+    font-size: 20px;
+}
+.person-icon i {
+    padding: 0 10px;
+}
 .notification {
     background-color: #8edafc;
     display: flex;
     align-items: center;
+    padding: 10px;
 }
 .notification i {
     background-color: #f2fbff;
     color: #8edafc;
-    font-size: 22px;
-    height: 50px;
-    width: 50px;
-    line-height: 50px;
+    font-size: 20px;
+    height: 40px;
+    width: 40px;
+    line-height: 40px;
     text-align: center;
     border-radius: 50%;
+}
+.notification-text {
+    margin-left: 8px;
+    font-size: 14px;
+}
+.notification-text a {
+    color: #4f7485;
 }
 .contact-search {
     display: flex;
@@ -78,10 +100,41 @@ img {
 }
 .contact-search button {
     width: 15%;
+    height: 40px;
+    border: 1px solid lightgray;
+    background-color: #fff;
 }
 .contact-search input {
     width: 80%;
+    height: 40px;
+    padding-left: 20px;
+    border: 1px solid lightgray;
 }
 
 /*------ right column ------*/
-
+.message-write {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #eaeaea;
+    padding: 10px 30px;
+}
+.message-write i {
+    color: #6b7376;
+    font-size: 22px;
+}
+.message-write i:hover {
+    color: #000;
+}
+.message-write input {
+    width: 85%;
+    height: 40px;
+    padding-left: 20px;
+    border-radius: 10px;
+    border: none;
+}
+.message-area {
+    height: calc(100% - 130px);
+    overflow-y: auto;
+    background-image: url(../img/mine.jpg);
+}
