@@ -24,6 +24,7 @@ img {
 }
 i:hover {
     color: #000;
+    cursor: pointer;
 }
 
 /*------ main ------*/
