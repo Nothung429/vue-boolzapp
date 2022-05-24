@@ -47,8 +47,17 @@
                     </button>
                     <input type="search" name="" id="" placeholder="Cerca o inizia una nuova chat">
                 </div>
-                <div class="contact">
-
+                <div class="contacts">
+                    <div class="contact" v-for="contact in contacts">
+                        <img src="contact.avatar" alt="img-avatar">
+                        <div class="contact-text">
+                            <p class="contact-name">{{contact.name}}</p>
+                            <p class="contact-message">Ultimo messaggio inviato</p>
+                        </div>
+                        <div class="time">
+                            <p>12:00</p>
+                        </div>
+                    </div>
                 </div>
             </div>
 

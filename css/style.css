@@ -110,6 +110,28 @@ i:hover {
     padding-left: 20px;
     border: 1px solid lightgray;
 }
+.contact {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    border-bottom: 1px solid lightgray;
+    position: relative;
+}
+.contact:hover {
+    background-color: #009688;
+}
+.contact-text {
+    margin-left: 10px;
+}
+.contact-message ,.time {
+    font-size: 12px;
+    color: #b1b1b1;
+}
+.time {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+}
 
 /*------ right column ------*/
 .message-write {
