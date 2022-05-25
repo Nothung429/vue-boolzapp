@@ -7,15 +7,10 @@
 body {
     font-family: 'Lato', sans-serif;
     height: 100vh;
-    position: relative;
-}
-.bg-body-1 {
-    background-color: #009688;
-    height: 20vh;
-}
-.bg-body-2 {
-    background-color: #dcdbd3;
-    height: 80vh;
+    background: linear-gradient(180deg, #009688 20%, #dcdbd3 0%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 img {
     max-width: 50px;
@@ -31,16 +26,13 @@ i:hover {
 .container {
     height: 90%;
     width: 80%;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50% , -50%);
     display: flex;
 }
 .col-left {
     width: 35%;
     height: 100%;
     background-color: #fff;
+    overflow-y: auto;
 }
 .col-right {
     width: 65%;
@@ -48,28 +40,30 @@ i:hover {
 }
 
 /*------ left column ------*/
-.title {
+/*------ left column user ------*/
+.user {
     display: flex;
     justify-content: space-between;
     align-items: center;
     background-color: #eaeaea;
     padding: 10px;
 }
-.person {
+.profile {
     display: flex;
     align-items: center;
 }
-.person span {
+.profile span {
     font-size: 18px;
     margin-left: 8px;
 }
-.person-icon {
+.profile-icon {
     color: #b1b1b1;
     font-size: 20px;
 }
-.person-icon i {
+.profile-icon i {
     padding: 0 10px;
 }
+/*------ left column notification ------*/
 .notification {
     background-color: #8edafc;
     display: flex;
@@ -93,24 +87,26 @@ i:hover {
 .notification-text a {
     color: #4f7485;
 }
-.contact-search {
+/*------ left column contact searchbar ------*/
+.search-bar {
     display: flex;
     justify-content: center;
     padding: 10px 0;
     background-color: #fafafa;
 }
-.contact-search button {
+.search-bar button {
     width: 15%;
     height: 40px;
     border: 1px solid lightgray;
     background-color: #fff;
 }
-.contact-search input {
+.search-bar input {
     width: 80%;
     height: 40px;
     padding-left: 20px;
     border: 1px solid lightgray;
 }
+/*------ left column contacts list ------*/
 .contact {
     display: flex;
     align-items: center;
@@ -135,29 +131,34 @@ i:hover {
 }
 
 /*------ right column ------*/
-.message-write {
+/*------ right column message area------*/
+.message-area {
+    height: calc(100% - 130px);
+    overflow-y: auto;
+    background-image: url(../img/mine.jpg);
+}
+.message {
+    background-color: red;
+}
+/*------ right column writing area ------*/
+.writing-area {
     display: flex;
     justify-content: space-between;
     align-items: center;
     background-color: #eaeaea;
     padding: 10px 30px;
 }
-.message-write i {
+.writing-area i {
     color: #6b7376;
     font-size: 22px;
 }
-.message-write i:hover {
+.writing-area i:hover {
     color: #000;
 }
-.message-write input {
+.writing-area input {
     width: 85%;
     height: 40px;
     padding-left: 20px;
     border-radius: 10px;
     border: none;
-}
-.message-area {
-    height: calc(100% - 130px);
-    overflow-y: auto;
-    background-image: url(../img/mine.jpg);
 }
