@@ -62,9 +62,9 @@
             <!------ RIGHT COLUMN ------>
             <section class="col-right">
                 <div class="user">
-                    <div class="profile">
-                        <img :src="`img/avatar${contact[arrayPosition].avatar}.jpg`" alt="contact-img">
-                        <span>{{contact[arrayPosition].name}}</span>
+                    <div class="profile" v-for="(contact, index) in contacts">
+                        <img :src="`img/avatar${contact.avatar}.jpg`" alt="contact-img">
+                        <span>{{contact.name}}</span>
                     </div>
                     <div class="profile-icon">
                         <i class="fa-solid fa-magnifying-glass"></i>
@@ -76,7 +76,7 @@
                     <template class="message" v-for="(contact, index) in contacts">
                         <div v-for="(text, index) in contact.messages">
                             <p :class="text.status === 'sent' ? 'sended':'received'">
-                                {{text[arrayPosition].message}} <span>{{text[arrayPosition].date}}</span>
+                                {{text.message}} <span>{{text.date}}</span>
                             </p>
                         </div>
                     </template>
