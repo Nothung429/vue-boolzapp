@@ -1,7 +1,7 @@
 const app = new Vue ({
     el: "#root",
     data: {
-        index: 0,
+        arrayPosition: 0,
         contacts: [
             {
                 name: 'Michele',
@@ -167,6 +167,8 @@ const app = new Vue ({
         ]
     },
     methods: {
-
+        selectedImage(index) {
+            this.arrayPosition = index;
+        },
     },
 });
