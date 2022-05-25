@@ -47,6 +47,7 @@ i:hover {
     align-items: center;
     background-color: #eaeaea;
     padding: 10px;
+    border-right: 1px solid lightgray;
 }
 .profile {
     display: flex;
