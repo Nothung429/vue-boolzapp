@@ -62,9 +62,9 @@
             <!------ RIGHT COLUMN ------>
             <section class="col-right">
                 <div class="user">
-                    <div class="profile" v-for="(contact, index) in contacts">
-                        <img :src="`img/avatar${contact.avatar}.jpg`" alt="contact-img">
-                        <span>{{contact.name}}</span>
+                    <div class="profile">
+                        <img :src="`img/avatar${contacts[arrayPosition].avatar}.jpg`" alt="contact-img">
+                        <span>{{contacts[arrayPosition].name}}</span>
                     </div>
                     <div class="profile-icon">
                         <i class="fa-solid fa-magnifying-glass"></i>
@@ -73,13 +73,11 @@
                     </div>
                 </div>
                 <div class="message-area">
-                    <template class="message" v-for="(contact, index) in contacts">
-                        <div v-for="(text, index) in contact.messages">
-                            <p :class="text.status === 'sent' ? 'sended':'received'">
-                                {{text.message}} <span>{{text.date}}</span>
-                            </p>
-                        </div>
-                    </template>
+                    <div class="message" v-for="(text, index) in contacts[arrayPosition].messages">
+                        <p :class="text.status === 'sent' ? 'sended':'received'">
+                            {{text.message}} <span>{{text.date}}</span>
+                        </p>
+                    </div>
                 </div>
                 <div class="writing-area">
                     <i class="fa-regular fa-face-smile"></i>
@@ -93,7 +91,6 @@
     </body>
 
 </html>
-<!-- :class="text.status === sent ? 'sended':'received'" -->
 
 <!-- Milestone 1
     1. Replica della grafica con la possibilità di avere messaggi scritti dall’utente (verdi) e dall’interlocutore (bianco) assegnando due classi CSS diverse
