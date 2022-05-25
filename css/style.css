@@ -138,8 +138,15 @@ i:hover {
     overflow-y: auto;
     background-image: url(../img/mine.jpg);
 }
-.message {
-    background-color: red;
+.sended {
+    font-size: 20px;
+    color: #fff;
+    background-color: green;
+}
+.received {
+    font-size: 20px;
+    color: #fff;
+    background-color: blue;
 }
 /*------ right column writing area ------*/
 .writing-area {

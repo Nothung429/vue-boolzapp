@@ -73,9 +73,16 @@
                     </div>
                 </div>
                 <div class="message-area">
-                    <div class="message" v-for="(contact, index) in contacts">
-                        
-                    </div>
+                    <template class="message" v-for="(contact, index) in contacts">
+                        <div v-for="(text, index) in contact.messages">
+                            <p :class="status === sent ? 'sended':null">
+                                {{text.message}} <span>{{text.date}}</span>
+                            </p>
+                            <p :class="status === received ? 'received':null">
+                                {{text.message}} <span>{{text.date}}</span>
+                            </p>
+                        </div>
+                    </template>
                 </div>
                 <div class="writing-area">
                     <i class="fa-regular fa-face-smile"></i>
