@@ -182,8 +182,8 @@ const app = new Vue ({
         },
         userAddText () {
             if (this.userText !== " ") {
-                const userText = {date: '10/01/2020 15:51:00', message: this.userText, status: 'sent'};
-                this.contacts[messages].push(userText);
+                const userText = {date: '', message: this.userText, status: 'sent'};
+                this.contacts[this.arrayPosition].messages.push(userText);
                 this.userText = "";
             }
         }
