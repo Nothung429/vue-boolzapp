@@ -163,12 +163,29 @@ const app = new Vue ({
                         status: 'received'
                     }
                 ],
-            }
-        ]
+            },
+        ],
+        userText: "",
     },
     methods: {
         selectedImage(index) {
             this.arrayPosition = index;
         },
+        getLastMessageTime(contact) {
+            const DateTime = luxon.DateTime
+            const lastMexTime = contact.messages[contact.messages.length - 1];
+            return DateTime.fromFormat(lastMexTime.date, "dd/MM/yyyy HH:mm:ss").toFormat("HH:mm");
+        },
+        getLastMessage(contact) {
+            const lastMex = contact.messages[contact.messages.length - 1];
+            return lastMex.message;
+        },
+        userAddText () {
+            if (this.userText !== " ") {
+                const userText = {date: '10/01/2020 15:51:00', message: this.userText, status: 'sent'};
+                this.contacts[messages].push(userText);
+                this.userText = "";
+            }
+        }
     },
 });
