@@ -11,6 +11,8 @@
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap" rel="stylesheet">
+        <!------ luxon date ------>
+        <script src="https://cdn.jsdelivr.net/npm/luxon@2.4.0/build/global/luxon.min.js"></script>
         <!------ Vue.js ------>
         <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
         <!------ link css ------>
@@ -51,10 +53,10 @@
                         <img :src="`img/avatar${contact.avatar}.jpg`" :alt="contact.name">
                         <div class="contact-text">
                             <p class="contact-name">{{contact.name}}</p>
-                            <p class="contact-message">Ultimo messaggio inviato</p>
+                            <p class="contact-message">{{getLastMessage(contact)}}</p>
                         </div>
                         <div class="time">
-                            <p>12:00</p>
+                            <p>{{getLastMessageTime(contact)}}</p>
                         </div>
                     </div>
                 </div>
@@ -64,7 +66,10 @@
                 <div class="user">
                     <div class="profile">
                         <img :src="`img/avatar${contacts[arrayPosition].avatar}.jpg`" alt="contact-img">
-                        <span>{{contacts[arrayPosition].name}}</span>
+                        <div>
+                            <p>{{contacts[arrayPosition].name}}</p>
+                            <p class="last-access">Ultimo accesso alle 12:00</p>
+                        </div>
                     </div>
                     <div class="profile-icon">
                         <i class="fa-solid fa-magnifying-glass"></i>
@@ -73,15 +78,16 @@
                     </div>
                 </div>
                 <div class="message-area">
-                    <div class="message" v-for="(text, index) in contacts[arrayPosition].messages">
-                        <p :class="text.status === 'sent' ? 'sended':'received'">
-                            {{text.message}} <span>{{text.date}}</span>
-                        </p>
+                    <div class="message" v-for="(text, index) in contacts[arrayPosition].messages" :class="text.status === 'sent' ? 'sended':'received'">
+                        <p>{{text.message}}</p>
+                        <p class="mex-time">{{text.date}}</p>
                     </div>
                 </div>
                 <div class="writing-area">
                     <i class="fa-regular fa-face-smile"></i>
-                    <input type="text" name="" id="" placeholder="Scrivi un messaggio">
+                    <form @submit.prevent="userAddText()">
+                        <input type="text" placeholder="Scrivi un messaggio" v-model="userText" required>
+                    </form>
                     <i class="fa-solid fa-microphone"></i>
                 </div>
             </section>
@@ -100,4 +106,10 @@
 <!-- Milestone 2
     1. Visualizzazione dinamica dei messaggi: tramite la direttiva v-for, visualizzare tutti i messaggi relativi al contatto attivo all’interno del pannello della conversazione
     2. Click sul contatto mostra la conversazione del contatto cliccato 
+-->
+
+<!-- Milestone 3
+    1. Aggiunta di un messaggio: l’utente scrive un testo nella parte bassa e digitando
+    “enter” il testo viene aggiunto al thread sopra, come messaggio verde
+    2. Risposta dall’interlocutore: ad ogni inserimento di un messaggio, l’utente riceverà un “ok” come risposta, che apparirà dopo 1 secondo 
 -->
