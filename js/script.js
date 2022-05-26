@@ -2,6 +2,7 @@ const app = new Vue ({
     el: "#root",
     data: {
         arrayPosition: 0,
+        autoResponse: null,
         contacts: [
             {
                 name: 'Michele',
@@ -166,6 +167,7 @@ const app = new Vue ({
             },
         ],
         userText: "",
+        cpuText: "",
     },
     methods: {
         selectedImage(index) {
@@ -182,10 +184,22 @@ const app = new Vue ({
         },
         userAddText () {
             if (this.userText !== " ") {
-                const userText = {date: '', message: this.userText, status: 'sent'};
+                const userText = {date: '15:56', message: this.userText, status: 'sent'};
                 this.contacts[this.arrayPosition].messages.push(userText);
                 this.userText = "";
             }
+        },
+        cpuAddText() {
+            const cpuText = {date: '15:56', message: 'OK!', status: 'received'};
+            this.contacts[this.arrayPosition].messages.push(cpuText);
+        },
+        startResponse() {
+			this.autoResponse = setTimeout(() => {
+				this.cpuAddText();
+			}, 1000);
+		},
+        created() {
+            this.startResponse();
         }
     },
 });
