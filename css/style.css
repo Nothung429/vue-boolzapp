@@ -53,8 +53,7 @@ i:hover {
     display: flex;
     align-items: center;
 }
-.profile span {
-    font-size: 18px;
+.profile div ,.profile span{
     margin-left: 8px;
 }
 .profile-icon {
@@ -121,7 +120,7 @@ i:hover {
 .contact-text {
     margin-left: 10px;
 }
-.contact-message ,.time {
+.contact-message ,.time ,.last-access {
     font-size: 12px;
     color: #b1b1b1;
 }
@@ -137,32 +136,32 @@ i:hover {
     height: calc(100% - 130px);
     overflow-y: auto;
     background-image: url(../img/mine.jpg);
-}
-.message {
-    display: flex;
-}
-.sended ,.received {
-    padding: 20px 30px;
-    margin: 10px 40px;
-    max-width: 40%;
-    border-radius: 10px;
     display: flex;
     flex-direction: column;
-
+    gap: 20px;
+    padding: 20px;
 }
-.sended span, .received span {
-    display: flex;
-    justify-content: flex-end;
-    font-size: 8px;
-    padding: 0;
-    color: #b1b1b1;
+.message.sended , .message.received {
+    position: relative;
+    padding: 20px 30px;
+    max-width: 40%;
+    min-width: 30%;
+    border-radius: 10px;
 }
-.sended {
-    margin-left: 680px;
+.message.sended {
+    align-self: flex-end;
     background-color: #d5f9ba;
 }
-.received {
+.message.received {
+    align-self: flex-start;
     background-color: #fff;
+}
+.mex-time {
+    position: absolute;
+    bottom: 5px;
+    right: 5px;
+    font-size: 12px;
+    color: #b1b1b1;
 }
 /*------ right column writing area ------*/
 .writing-area {
@@ -179,8 +178,8 @@ i:hover {
 .writing-area i:hover {
     color: #000;
 }
-.writing-area input {
-    width: 85%;
+.writing-area form input {
+    width: 500px;
     height: 40px;
     padding-left: 20px;
     border-radius: 10px;
