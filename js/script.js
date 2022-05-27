@@ -2,6 +2,9 @@ const app = new Vue ({
     el: "#root",
     data: {
         arrayPosition: 0,
+        searchContact: "",
+        userText: "",
+        cpuText: "",
         contacts: [
             {
                 name: 'Michele',
@@ -165,9 +168,6 @@ const app = new Vue ({
                 ],
             },
         ],
-        userText: "",
-        cpuText: "",
-        search: "",
     },
     methods: {
         selectedImage(index) {
@@ -192,10 +192,9 @@ const app = new Vue ({
                 };
             this.contacts[this.arrayPosition].messages.push(userText);
             this.userText = "";
-            this.cpuAddText(this.arrayPosition);
-            console.log(this.arrayPosition);
+            this.cpuAddText(this.contacts[this.arrayPosition]);
         },
-        cpuAddText(index) {
+        cpuAddText(contact) {
             setTimeout(() => {
                 const DateTime = luxon.DateTime
                 const cpuText = 
@@ -204,9 +203,15 @@ const app = new Vue ({
                         message: 'OK!', 
                         status: 'received'
                     };
-                    console.log(this.arrayPosition);
-                this.contacts[index].messages.push(cpuText);
+                contact.messages.push(cpuText);
             }, 2000);
         },
+    },
+    computed: {
+        filteredList() {
+            return this.contacts.filter(contact => {
+                return contact.name.toLowerCase().includes(this.searchContact.toLowerCase())
+            })
+        }
     },
 });
