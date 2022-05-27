@@ -170,8 +170,15 @@ const app = new Vue ({
         ],
     },
     methods: {
-        selectContact(index) {
-            this.arrayPosition = index;
+        selectContact(avatar) {
+            for (let i = 0 ; i < this.contacts.length ; i++) {
+                if (this.contacts[i].avatar === avatar) {
+                    this.arrayPosition = i;
+                    return;
+                } else {
+                    null;
+                }
+            }
         },
         getLastMessageTime(contact) {
             const DateTime = luxon.DateTime
