@@ -192,9 +192,9 @@ const app = new Vue ({
                 };
             this.contacts[this.arrayPosition].messages.push(userText);
             this.userText = "";
-            this.cpuAddText(this.contacts[this.arrayPosition]);
+            this.cpuAddText(this.arrayPosition);
         },
-        cpuAddText(contact) {
+        cpuAddText(index) {
             setTimeout(() => {
                 const DateTime = luxon.DateTime
                 const cpuText = 
@@ -203,7 +203,7 @@ const app = new Vue ({
                         message: 'OK!', 
                         status: 'received'
                     };
-                contact.messages.push(cpuText);
+                    this.contacts[index].messages.push(cpuText);
             }, 2000);
         },
     },
