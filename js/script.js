@@ -2,7 +2,7 @@ const app = new Vue ({
     el: "#root",
     data: {
         arrayPosition: 0,
-        searchContact: "",
+        finder: "",
         userText: "",
         cpuText: "",
         contacts: [
@@ -170,7 +170,7 @@ const app = new Vue ({
         ],
     },
     methods: {
-        selectedImage(index) {
+        selectContact(index) {
             this.arrayPosition = index;
         },
         getLastMessageTime(contact) {
@@ -208,9 +208,9 @@ const app = new Vue ({
         },
     },
     computed: {
-        filteredList() {
+        searchContact() {
             return this.contacts.filter(contact => {
-                return contact.name.toLowerCase().includes(this.searchContact.toLowerCase())
+                return contact.name.toLowerCase().includes(this.finder.toLowerCase())
             })
         }
     },
