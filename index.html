@@ -6,7 +6,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <!------ font awesome ------>
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer"/>
         <!------ google fonts ------>
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -42,16 +42,14 @@
                         <a href="#">Attiva notifiche desktop</a>
                     </div>
                 </div>
-                <!---------------------------------------------------------->
                 <div class="search-bar">
                     <button>
                         <i class="fa-solid fa-magnifying-glass"></i>
                     </button>
-                    <input type="search" v-model="search" placeholder="Cerca o inizia una nuova chat" name="contact-search" id="">
+                    <input type="text" v-model="searchContact" placeholder="Cerca o inizia una nuova chat" name="contact-search" id="">
                 </div>
-                <!---------------------------------------------------------->
-                <div class="contacts">
-                    <div class="contact" v-for="(contact, index) in contacts" @click="selectedImage(index)">
+                <div class="contacts" v-for="(contact, index) in filteredList">
+                    <div class="contact" @click="selectedImage(index)">
                         <img :src="`img/avatar${contact.avatar}.jpg`" :alt="contact.name">
                         <div class="contact-text">
                             <p class="contact-name">{{contact.name}}</p>
@@ -70,7 +68,7 @@
                         <img :src="`img/avatar${contacts[arrayPosition].avatar}.jpg`" alt="contact-img">
                         <div>
                             <p>{{contacts[arrayPosition].name}}</p>
-                            <p class="last-access">Ultimo accesso alle 12:00</p>
+                            <p class="last-access">Ultimo accesso oggi</p>
                         </div>
                     </div>
                     <div class="profile-icon">
@@ -116,7 +114,5 @@
 -->
 
 <!-- Milestone 4
-    1. Ricerca utenti: scrivendo qualcosa nell’input a sinistra, vengono visualizzati solo i
-    contatti il cui nome contiene le lettere inserite (es, Marco, Matteo Martina -> Scrivo
-    “mar” rimangono solo Marco e Martina) 
+    1. Ricerca utenti: scrivendo qualcosa nell’input a sinistra, vengono visualizzati solo i contatti il cui nome contiene le lettere inserite (Esempio: Marco, Matteo, Martina, se scrivo “mar” rimangono solo Marco e Martina)
 -->
