@@ -48,8 +48,8 @@
                     </button>
                     <input type="text" v-model="finder" placeholder="Cerca o inizia una nuova chat" name="contact-search" id="">
                 </div>
-                <div class="contacts" v-for="(contact, index, avatar) in searchContact">
-                    <div class="contact" @click="selectContact(avatar)">
+                <div class="contacts" v-for="(contact, index) in searchContact">
+                    <div class="contact" @click="selectContact(contact.avatar)">
                         <img :src="`img/avatar${contact.avatar}.jpg`" :alt="contact.name">
                         <div class="contact-text">
                             <p class="contact-name">{{contact.name}}</p>
