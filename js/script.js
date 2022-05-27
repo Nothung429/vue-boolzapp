@@ -2,7 +2,6 @@ const app = new Vue ({
     el: "#root",
     data: {
         arrayPosition: 0,
-        autoResponse: null,
         contacts: [
             {
                 name: 'Michele',
@@ -168,6 +167,7 @@ const app = new Vue ({
         ],
         userText: "",
         cpuText: "",
+        search: "",
     },
     methods: {
         selectedImage(index) {
@@ -183,23 +183,30 @@ const app = new Vue ({
             return lastMex.message;
         },
         userAddText () {
-            if (this.userText !== " ") {
-                const userText = {date: '15:56', message: this.userText, status: 'sent'};
-                this.contacts[this.arrayPosition].messages.push(userText);
-                this.userText = "";
-            }
+            const DateTime = luxon.DateTime
+            const userText =
+                {
+                    date: DateTime.now().toFormat("dd/MM/yyyy HH:mm:ss"), 
+                    message: this.userText, 
+                    status: 'sent'
+                };
+            this.contacts[this.arrayPosition].messages.push(userText);
+            this.userText = "";
+            this.cpuAddText(this.arrayPosition);
+            console.log(this.arrayPosition);
         },
-        cpuAddText() {
-            const cpuText = {date: '15:56', message: 'OK!', status: 'received'};
-            this.contacts[this.arrayPosition].messages.push(cpuText);
+        cpuAddText(index) {
+            setTimeout(() => {
+                const DateTime = luxon.DateTime
+                const cpuText = 
+                    {
+                        date: DateTime.now().toFormat("dd/MM/yyyy HH:mm:ss"), 
+                        message: 'OK!', 
+                        status: 'received'
+                    };
+                    console.log(this.arrayPosition);
+                this.contacts[index].messages.push(cpuText);
+            }, 2000);
         },
-        startResponse() {
-			this.autoResponse = setTimeout(() => {
-				this.cpuAddText();
-			}, 1000);
-		},
-        created() {
-            this.startResponse();
-        }
     },
 });

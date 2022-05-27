@@ -144,7 +144,7 @@ i:hover {
 .message.sended , .message.received {
     position: relative;
     padding: 20px 30px;
-    max-width: 40%;
+    min-width: 40%;
     border-radius: 10px;
 }
 .message.sended {

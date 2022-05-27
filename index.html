@@ -42,12 +42,14 @@
                         <a href="#">Attiva notifiche desktop</a>
                     </div>
                 </div>
+                <!---------------------------------------------------------->
                 <div class="search-bar">
                     <button>
                         <i class="fa-solid fa-magnifying-glass"></i>
                     </button>
-                    <input type="search" name="" id="" placeholder="Cerca o inizia una nuova chat">
+                    <input type="search" v-model="search" placeholder="Cerca o inizia una nuova chat" name="contact-search" id="">
                 </div>
+                <!---------------------------------------------------------->
                 <div class="contacts">
                     <div class="contact" v-for="(contact, index) in contacts" @click="selectedImage(index)">
                         <img :src="`img/avatar${contact.avatar}.jpg`" :alt="contact.name">
@@ -85,8 +87,8 @@
                 </div>
                 <div class="writing-area">
                     <i class="fa-regular fa-face-smile"></i>
-                    <form @submit.prevent="userAddText()" v-on:keyup.enter="startResponse()">
-                        <input type="text" placeholder="Scrivi un messaggio" v-model="userText" id="user-input" required>
+                    <form @submit.prevent="userAddText()" v-on:keyup.enter="cpuAddText()">
+                        <input type="text" placeholder="Scrivi un messaggio" v-model="userText" id="user-input" required pattern=".*\S+.*">
                     </form>
                     <i class="fa-solid fa-microphone"></i>
                 </div>
@@ -111,4 +113,10 @@
 <!-- Milestone 3
     1. Aggiunta di un messaggio: l’utente scrive un testo nella parte bassa e digitando “enter” il testo viene aggiunto al thread sopra, come messaggio verde
     2. Risposta dall’interlocutore: ad ogni inserimento di un messaggio, l’utente riceverà un “ok” come risposta, che apparirà dopo 1 secondo 
+-->
+
+<!-- Milestone 4
+    1. Ricerca utenti: scrivendo qualcosa nell’input a sinistra, vengono visualizzati solo i
+    contatti il cui nome contiene le lettere inserite (es, Marco, Matteo Martina -> Scrivo
+    “mar” rimangono solo Marco e Martina) 
 -->
